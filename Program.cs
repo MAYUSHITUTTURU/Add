@@ -1,0 +1,24 @@
+﻿using System;
+
+namespace Aram
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string sentence = "Я не грав у майнкрафт";
+            string[] wordsInSentence = sentence.Split(' ');
+
+            string firstWord = wordsInSentence[0];
+            string lastWord = wordsInSentence[wordsInSentence.Length - 1];
+
+            wordsInSentence[0] = lastWord;
+            wordsInSentence[wordsInSentence.Length - 1] = firstWord;
+
+            string newSentence = string.Join(" ", wordsInSentence);
+
+            Console.WriteLine($"Початок: {sentence}.");
+            Console.WriteLine($"Кiнець: {newSentence}.");
+        }
+    }
+}
