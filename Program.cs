@@ -1,66 +1,95 @@
 ﻿using System;
-using System.Numerics;
 
-namespace Study
+namespace Study;
+
+internal class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static BigInteger GetFactorial(BigInteger number)
+        Console.WriteLine("Select an acceptable number of password characters(4-6):");
+        Console.Write("Type: ");
+        string text1 = Console.ReadLine();
+        int a = int.Parse(text1);
+
+        Console.WriteLine("Select valid characters: \n 1: numbers \n 2: numbers and 1 letter \n 3: only letters"); // 26 letters (eng alphabet)
+        Console.Write("Type: ");
+        string text2 = Console.ReadLine();
+        int g = int.Parse(text2);
+
+        int b = (int)Math.Pow(10, a);
+        int f = (int)Math.Pow(10, a - 1) * 26;
+        int r = (int)Math.Pow(26, a);
+
+        if (a >= 4 && a <= 6)
         {
-            if (number > 0 && number != 1)
+            switch (a)
             {
-                return number * GetFactorial(number - 1);
-            }
-            else
-            {
-                return 1;
-            }
-        }
-        static BigInteger GetPartialPermutation(BigInteger n, BigInteger m)
-        {
-            return GetFactorial(n) / GetFactorial(n - m);
-        }
-        static void Main(string[] args)
-        {
-            string choice;
-            int numOfPossibleChars, numOfPasswordSymbols;
+                case 4:
+                    if (g >= 1 && g <= 3)
+                    {
+                        switch (g)
+                        {
+                            case 1:
+                                Console.WriteLine("Number of password variants - " + b);
+                                break;
+                            case 2:
+                                Console.WriteLine("Number of password variants with 1 letter - " + f);
+                                break;
+                            case 3:
+                                Console.WriteLine("Number of password variants with full letter - " + r);
+                                break;
+                            default:
+                                Console.WriteLine("Error type");
+                                break;
+                        }
+                    }
+                    break;
 
-            Console.WriteLine("Select the number of symbols for your password: ");
-            Console.WriteLine("1 - for 4 symbols");
-            Console.WriteLine("2 - for 5 symbols");
-            Console.WriteLine("3 - for 6 symbols");
+                case 5:
+                    if (g >= 1 && g <= 3)
+                    {
+                        switch (g)
+                        {
+                            case 1:
+                                Console.WriteLine("Number of password variants - " + b);
+                                break;
+                            case 2:
+                                Console.WriteLine("Number of password variants with 1 letter - " + f);
+                                break;
+                            case 3:
+                                Console.WriteLine("Number of password variants with full letter - " + r);
+                                break;
+                            default:
+                                Console.WriteLine("Error type");
+                                break;
+                        }
+                    }
+                    break;
 
-            choice = Console.ReadLine();
+                case 6:
+                    if (g >= 1 && g <= 3)
+                    {
+                        switch (g)
+                        {
+                            case 1:
+                                Console.WriteLine("Number of password variants - " + b);
+                                break;
+                            case 2:
+                                Console.WriteLine("Number of password variants with 1 letter - " + f);
+                                break;
+                            case 3:
+                                Console.WriteLine("Number of password variants with full letter - " + r);
+                                break;
+                            default:
+                                Console.WriteLine("Error type");
+                                break;
+                        }
+                    }
+                    break;
 
-            if (choice != "1" && choice != "2" && choice != "3")
-            {
-                Console.WriteLine("ENTER 1, 2 or 3!!!");
-            }
-            else
-            {
-                if (choice == "1") numOfPasswordSymbols = 4;
-                else if (choice == "2") numOfPasswordSymbols = 5;
-                else numOfPasswordSymbols = 6;
-
-                Console.WriteLine("Select the characters that will be used to create the password: ");
-                Console.WriteLine("1 - only digits");
-                Console.WriteLine("2 - digits and lowercase letters");
-                Console.WriteLine("3 - digits and letters");
-
-                choice = Console.ReadLine();
-
-                if (choice != "1" && choice != "2" && choice != "3")
-                {
-                    Console.WriteLine("ENTER 1, 2 or 3!!!");
-                }
-                else
-                {
-                    if (choice == "1") numOfPossibleChars = 10;
-                    else if (choice == "2") numOfPossibleChars = 36;
-                    else numOfPossibleChars = 62;
-
-                    Console.WriteLine($"The number of possible passwords: {GetPartialPermutation(numOfPossibleChars, numOfPasswordSymbols)}");
-                }
+                default:
+                    Console.WriteLine("none");
+                    break;
             }
         }
     }
